@@ -6,10 +6,11 @@
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:33:40 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/01 09:35:24 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:15:52 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_toupper(int i)
 {

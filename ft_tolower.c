@@ -6,10 +6,11 @@
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:36:55 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/01 09:38:27 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:15:30 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_tolower(int i)
 {

@@ -6,31 +6,47 @@
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:01:51 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/10/19 16:39:25 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:15:01 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
-
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	size_t		i;
+	while (*s1 != '\0' && *s1 == *s2 && n > 1)
 	{
-		if (s1[i] > s2[i])
-			return (1);
-		else if (s1[i] < s2[i])
-			return (-1);
-		i++;
+		s1++;
+		s2++;
+		n--;
 	}
-	return (0);
+	if (n == 0)
+		return (0);
+	return (*(unsigned char	*)s1 - *(unsigned char *)s2);
 }
-/*int     main()
+/*int main()
 {
-        printf("%d", ft_strncmp("Hello", "HelloWorld", 8));
-        printf("\n%d", ft_strncmp("ABC", "AB C", 4));
-        printf("\n%d", ft_strncmp("ABC", "ABC", 4));
-        printf("\n%d", ft_strncmp("ABC", "ABZ", 4));
+    // Testing the custom ft_strncmp function
+    const char *str1 = "ABC";
+    const char *str2 = "AB";
+    
+    int n = 8; // Number of characters to compare
+
+    int result = ft_strncmp(str1, str2, n);
+    
+    if (result < 0)
+    {
+        printf("'%.*s' is less than '%.*s'\n", n, str1, n, str2);
+    }
+    else if (result > 0)
+    {
+        printf("'%.*s' is greater than '%.*s'\n", n, str1, n, str2);
+    }
+    else
+    {
+        printf("'%.*s' is equal to '%.*s'\n", n, str1, n, str2);
+    }
+    return 0;
+    printf("%d the actual result : \n", strncmp(str1, str2, n));
 }*/

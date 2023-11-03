@@ -6,10 +6,11 @@
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:53:03 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/01 09:54:41 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:16:37 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_strlen(const char *str)
 {
