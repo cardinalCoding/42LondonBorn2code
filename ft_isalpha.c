@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
+/*   By: bcorte-r <bcorte-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 04:42:16 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/03 10:33:28 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/04 08:18:05 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,20 @@ int	ft_isaplha(int i)
 
     printf("Testing ft_isaplha function:\n");
 
-    printf("Character '%c' (%d) is %s\n", c1, c1, ft_isaplha(c1) ? "isaplha" : "not isaplha");
-    printf("Character '%c' (%d) is %s\n", c2, c2, ft_isaplha(c2) ? "isaplha" : "not isaplha");
-    printf("Character '%c' (%d) is %s\n", c3, c3, ft_isaplha(c3) ? "isaplha" : "not isaplha");
-    printf("Character '%c' (%d) is %s\n", c4, c4, ft_isaplha(c4) ? "isaplha" : "not isaplha");
-    printf("Character '%c' (%d) is %s\n", c5, c5, ft_isaplha(c5) ? "isaplha" : "not isaplha");
-    printf("Character '%c' (%d) is %s\n", c6, c6, ft_isaplha(c6) ? "isaplha" : "not isaplha");
-    printf("Character '%c' (%d) is %s\n", c7, c7, ft_isaplha(c7) ? "isaplha" : "not isaplha");
+    printf("Character '%c' (%d) is %s\n", c1, 
+    c1, ft_isaplha(c1) ? "isaplha" : "not isaplha");
+    printf("Character '%c' (%d) is %s\n", c2, 
+    c2, ft_isaplha(c2) ? "isaplha" : "not isaplha");
+    printf("Character '%c' (%d) is %s\n", c3, 
+    c3, ft_isaplha(c3) ? "isaplha" : "not isaplha");
+    printf("Character '%c' (%d) is %s\n", c4, 
+    c4, ft_isaplha(c4) ? "isaplha" : "not isaplha");
+    printf("Character '%c' (%d) is %s\n", c5, 
+    c5, ft_isaplha(c5) ? "isaplha" : "not isaplha");
+    printf("Character '%c' (%d) is %s\n", c6, 
+    c6, ft_isaplha(c6) ? "isaplha" : "not isaplha");
+    printf("Character '%c' (%d) is %s\n", c7, 
+    c7, ft_isaplha(c7) ? "isaplha" : "not isaplha");
 
     return 0;
 }*/

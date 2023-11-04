@@ -6,7 +6,7 @@
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 06:23:15 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/03 06:33:16 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/04 13:57:10 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return (NULL);
 	while (big != '\0' && i < len)
 	{
-		while (big[i +j] == little[j] && i + j < len)
+		while (big[i + j] == little[j] && i + j < len)
 		{
 			j++;
-			if(little[j] == '\0')
+			if (little[j] == '\0')
 				return ((char *)big + i);
 		}
 		i++;
