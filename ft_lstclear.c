@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 23:22:19 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/10 13:55:45 by bcorte-r         ###   ########.fr       */
+/*   Created: 2023/11/10 18:25:04 by bcorte-r          #+#    #+#             */
+/*   Updated: 2023/11/10 18:30:57 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	write(fd, s, ft_strlen(s));
-}
-/*int	main(void)
-{
-    // Example of using ft_putstr_fd 
-    to write a string to standard output (file descriptor 1)
-    char *exampleString = "Hello, World!\n";
-    ft_putstr_fd(exampleString, 1);  // 
-    File descriptor 1 corresponds to standard output
+	t_list	*temp;
 
-    return 0;
-}*/
+	if (!del || !lst || !*lst)
+		return ;
+	while (lst && *lst)
+	{
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
+	}
+}
+ 
