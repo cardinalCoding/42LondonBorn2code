@@ -24,7 +24,7 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-int main() {
+/*int main() {
     t_list *head = NULL;
     t_list *node1 = (t_list *) malloc(sizeof(t_list));
     node1->content = "Hello";
@@ -41,4 +41,4 @@ int main() {
     printf("Size of linked list: %d\n", size);
 
     return 0;
-}
+}*/

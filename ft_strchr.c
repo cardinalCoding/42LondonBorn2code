@@ -29,9 +29,11 @@ char	*ft_strchr(const char *s, int i)
     char *result = ft_strchr(str, character_to_find);
 
     if (result) {
-        printf("Character '%c' found at position: %ld\n", character_to_find, result - str);
+        printf("Character '%c' found at position: 
+        %ld\n", character_to_find, result - str);
     } else {
-        printf("Character '%c' not found in the string.\n", character_to_find);
+        printf("Character '%c' not found in 
+        the string.\n", character_to_find);
     }
     return 0;
 }*/
