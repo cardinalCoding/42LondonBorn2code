@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <ctype.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -34,7 +35,7 @@ int		ft_toupper(int i);
 int		ft_strlen(const char *str);
 int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_memcmp(const int *s1, const int *s2, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_lstsize(t_list *lst);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *b, int c, size_t len);

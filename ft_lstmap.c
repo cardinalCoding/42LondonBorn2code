@@ -6,7 +6,7 @@
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:04:24 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/12 22:24:52 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:39:38 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*first;
 	t_list	*new;
 
-	if (!f || !del)
-		return (NULL);
 	first = NULL;
-	new = ft_lstnew((*f)(lst->content));
 	while (lst)
 	{
+		new = ft_lstnew (f(lst -> content));
 		if (!new)
 		{
-			while (first)
-			{
-				new = first->next;
-				(*del)(first->content);
-				free(first);
-				first = new;
-			}
-			lst = NULL;
+			ft_lstclear(&first, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&first, new);

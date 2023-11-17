@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	count(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	count;
 
@@ -21,44 +21,52 @@ int	count(char const *s, char c)
 		return (0);
 	while (*s)
 	{
-		if (*s == c)
-			while (*s == c)
-				s++;
-		else
-		{
-			count++;
-			while (*s && *s != c)
-				s++;
-		}
+		while (*s == c)
+			s++;
+		if (*s)
+			count ++;
+		while (*s && *s != c)
+			s++;
 	}
 	return (count);
+}
+
+static	void	ft_extraction(char **str, char const *s, char c)
+{
+	char		**sub_p;
+	char const	*tmp;
+
+	tmp = s;
+	sub_p = str;
+	while (*tmp)
+	{
+		while (*s == c)
+			s++;
+		tmp = s;
+		while (*tmp && *tmp != c)
+			tmp++;
+		if (*tmp == c || tmp > s)
+		{
+			*sub_p = ft_substr(s, 0, tmp - s);
+			s = tmp;
+			sub_p++;
+		}
+	}
+	*sub_p = (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**words;
-	int		word_count;
-	int		i;
 	int		len;
 
-	i = 0;
-	word_count = count(s, c);
-	words = (char **)malloc(sizeof(char *) * (word_count +1));
+	if (!s)
+		return (NULL);
+	len = count_words(s, c);
+	words = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!words)
 		return (NULL);
-	while (i < word_count)
-	{
-		while (*s == c)
-			s++;
-		len = 0;
-		while (s[len] && s[len] != c)
-			len++;
-		words[i] = (char *)malloc(sizeof(char) * (len + 1));
-		ft_strlcpy(words[i], s, len + 1);
-		s += len;
-		i++;
-	}
-	words[i] = NULL;
+	ft_extraction(words, s, c);
 	return (words);
 }
 /*int	main(void)

@@ -14,19 +14,13 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
 	char	*ptr;
 
-	i = nmemb * size;
 	ptr = (char *)malloc(nmemb * size);
-	if (ptr == 0)
-		return (0);
-	while (i < nmemb * size)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-	return ((void *) ptr);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
 /*void test_calloc() {
     // Test Case 1: Allocation of 5 integers (20 bytes) and initialize to 0
@@ -54,13 +48,15 @@ void	*ft_calloc(size_t nmemb, size_t size)
     }
 
     // Test Case 3: Allocation failure, should return NULL
-    void *arr3 = calloc(1000000000, 1000000000); // Extremely large allocation
+    void *arr3 = ft_calloc(400000000000000, 
+    40000000000000000); // Extremely large allocation
     if (arr3 == NULL) {
         printf("Test Case 3: PASSED\n");
     } else {
         printf("Test Case 3: FAILED\n");
     }
 }
+
 
 int main() {
     test_calloc();

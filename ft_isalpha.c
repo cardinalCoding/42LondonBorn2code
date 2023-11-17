@@ -13,7 +13,7 @@
 //#include <stdio.h>
 #include "libft.h"
 
-int	ft_isaplha(int i)
+int	ft_isalpha(int i)
 {
 	if ((i >= 'a' && i <= 'z') || (i >= 'A' && i <= 'Z'))
 		return (1);

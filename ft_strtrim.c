@@ -6,34 +6,70 @@
 /*   By: bcorte-r <bcorte-r@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 22:57:07 by bcorte-r          #+#    #+#             */
-/*   Updated: 2023/11/07 10:09:56 by bcorte-r         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:20:46 by bcorte-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static char	*trim_full_set(void)
 {
-	size_t	i;
-	size_t	j;
 	char	*str;
 
-	if (!s1 || !set)
+	str = malloc(1);
+	if (!str)
 		return (NULL);
-	if (s1 != 0 && set != 0)
-	{
-		i = 0;
-		j = ft_strlen(s1);
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[j -1] && ft_strchr(set, s1[j -1]))
-			j--;
-		str = (char *)malloc(sizeof(char) * (j - i + 1));
-		if (str)
-			ft_strlcpy(str, &s1[i], j - i + 1);
-	}
+	str[0] = '\0';
 	return (str);
 }
+
+static size_t	getstart(char const *s1, char const *set)
+{
+	size_t	start;
+
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	return (start);
+}
+
+static size_t	getend(char const *s1, char const *set)
+{
+	size_t	end;
+
+	end = ft_strlen(s1) - 1;
+	while (s1[end] && ft_strchr(set, s1[end]))
+		end--;
+	return (end);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	start;
+	size_t	end;
+	size_t	trim_leng;
+	char	*str;
+
+	if (s1 == NULL || set == NULL)
+		return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
+	start = getstart(s1, set);
+	if (s1[start] == '\0')
+		return (trim_full_set());
+	end = getend(s1, set);
+	if (end >= start)
+		trim_leng = end - start + 1;
+	else
+		trim_leng = 0;
+	str = malloc(trim_leng + 1);
+	if (!str)
+		return (NULL);
+	ft_memcpy(str, s1 + start, trim_leng);
+	str[trim_leng] = '\0';
+	return (str);
+}
+
 /*int main() {
     // Test case 1: Checks For Null Values and resturn null 
     const char *s1 = "   hello world   ";

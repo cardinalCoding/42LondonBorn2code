@@ -20,7 +20,9 @@ char	*ft_strchr(const char *s, int i)
 			return ((char *)s);
 		s++;
 	}
-	return (0);
+	if (i == 0)
+		return ((char *)s);
+	return (NULL);
 }
 /*int main() {
     const char *str = "Hello, World!";
